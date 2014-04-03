@@ -1,6 +1,6 @@
 package name.benjaminAbbitt.rTipped
 
-import name.benjaminAbbitt.rTipped.domain.TipBot
+import com.fasterxml.jackson.databind.ObjectMapper
 
 import javax.ws.rs.client.Client
 
@@ -12,7 +12,15 @@ public class Reddit {
     }
 
     public Object getPostedList(TipBot bot) {
-        def response = client.target("http://www.reddit.com/user/changetip").request("application/json").get()
-        println response.readEntity(String)
+        def response = client.target("http://www.reddit.com/user/changetip.json").request("application/json").get()
+
+        def responseEntity = response.readEntity(String)
+
+        ObjectMapper mapper = new ObjectMapper();
+
+
+
+        def map = mapper.readValue(responseEntity, Map)
+        println map
     }
 }

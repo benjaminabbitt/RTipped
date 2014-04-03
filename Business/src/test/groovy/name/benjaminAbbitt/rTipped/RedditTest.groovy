@@ -1,6 +1,5 @@
 package name.benjaminAbbitt.rTipped
 
-import name.benjaminAbbitt.rTipped.domain.TipBot
 import org.junit.Test
 
 import javax.ws.rs.client.Client
@@ -13,9 +12,9 @@ public class RedditTest {
         Client client = ClientBuilder.newClient()
         Reddit reddit = new Reddit(client)
 
-        TipBot tipBot
+        TipBot tipBot = new name.benjaminAbbitt.rTipped.TipBot(/.*Verified\*\*\:.*\[(?<originator>\w+).*(?<money>\d+.\d+)\s+USD.*\[(?<receiver>\w+)\].*/, "changeTip")
 
-        reddit.getPostedList(tipbot)
+        reddit.getPostedList(tipBot)
 
     }
 }
